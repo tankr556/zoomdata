@@ -38,4 +38,4 @@ const connection = mysql.createConnection({
     }
     console.log('Meeting inserted successfully');
   });
-  
+  //ALTER TABLE meetingdetails ADD COLUMN accountid VARCHAR(255);  -----( Mysql query)
