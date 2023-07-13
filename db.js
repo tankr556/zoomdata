@@ -1,4 +1,9 @@
 const mysql=require("mysql");
+const express = require('express');
+const app = express();
+const port = 3000;
+app.use(express.json());
+
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -39,3 +44,15 @@ const connection = mysql.createConnection({
     console.log('Meeting inserted successfully');
   });
   //ALTER TABLE meetingdetails ADD COLUMN accountid VARCHAR(255);  -----( Mysql query)
+  
+  app.post('/api/meetings', (req, res) => {
+    const meeting = req.body;
+    // Perform necessary operations to create a meeting
+    console.log('Creating meeting:', meeting);
+    res.status(201).json({ message: 'Meeting created successfully' });
+  });
+
+  
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
